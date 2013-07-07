@@ -1,9 +1,10 @@
 package models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-public class Game {
+public class Game implements Serializable {
     ArrayList players = new ArrayList();
     int[] places = new int[6];
     int[] purses  = new int[6];
