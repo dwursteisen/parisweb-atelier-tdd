@@ -2,3 +2,5 @@
 
 require:
     - play
+    - org.assertj -> assertj-core 1.3.0
+    - org.mockito -> mockito-all 1.9.5
