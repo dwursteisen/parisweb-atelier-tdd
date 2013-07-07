@@ -10,7 +10,8 @@ public class Application extends Controller {
 
 
     public static void index() {
-        render();
+        Game game = Cache.get("game", Game.class);
+        render(game);
     }
 
     public static void add(String player) {

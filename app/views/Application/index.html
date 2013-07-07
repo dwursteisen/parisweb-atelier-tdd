@@ -1,4 +1,19 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
 
-#{welcome /}
+<form action="@{Application.add}" method="GET">
+    <ul>
+        <li><input type="text" name="player" value="" placeholder="pseudo du joueur"></li>
+        <li><button>Ajouter</button></li>
+    </ul>
+</form>
+
+<form action="@{Application.roll}" method="get">
+        <li><input type="text" name="roll" value="" placeholder="valeur du dès"></li>
+        <li><button>Lancer les dès</button></li>
+</form>
+
+<ul>
+    <li>partie jouable : ${game.isPlayable()}</li>
+    <li>nombre de joueur : ${game.howManyPlayers()}</li>
+</ul>
