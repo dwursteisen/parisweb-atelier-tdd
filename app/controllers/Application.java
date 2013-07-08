@@ -6,23 +6,43 @@ import play.jobs.Job;
 import play.jobs.OnApplicationStart;
 import play.mvc.Controller;
 
+import java.util.Random;
+
 public class Application extends Controller {
 
+    private static final Random rand = new Random();
 
     public static void index() {
-        Game game = Cache.get("game", Game.class);
-        render(game);
+        Game game = retrieveGame();
+        boolean notAWinner = true;
+        render(game, notAWinner);
     }
 
     public static void add(String player) {
-        Cache.get("game", Game.class).add(player);
+        retrieveGame().add(player);
         index();
     }
 
     public static void roll(int roll) {
-        Cache.get("game", Game.class).roll(roll);
-        index();
+        Game game = retrieveGame();
+        game.roll(roll);
+        boolean notAWinner;
+        if (rand.nextInt(9) == 7) {
+            notAWinner = game.wrongAnswer();
+        } else {
+            notAWinner = game.wasCorrectlyAnswered();
+        }
+        renderTemplate("@Application.index", game, notAWinner);
 
+    }
+
+    private static Game retrieveGame() {
+        Game game = Cache.get("game", Game.class);
+        if(game == null) {
+            game = new Game();
+            Cache.set("game", game);
+        }
+        return game;
     }
 
     @OnApplicationStart
@@ -30,7 +50,7 @@ public class Application extends Controller {
 
         @Override
         public void doJob() throws Exception {
-            Cache.set("game", new Game());
+            retrieveGame();
         }
     }
 
