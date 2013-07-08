@@ -25,6 +25,14 @@
         <table class="table">
             <tr>
                 <th>
+                    Nombre de joueurs
+                </th>
+                <td>
+                    <span class="badge badge-info">${game.howManyPlayers()}</span>
+                </td>
+            </tr>
+            <tr>
+                <th>
                     Partie jouable
                 </th>
                 <td>
@@ -39,17 +47,15 @@
             </tr>
             <tr>
                 <th>
-                    Nombre de joueurs
-                </th>
-                <td>
-                    <span class="badge badge-info">${game.howManyPlayers()}</span>
-                </td>
-            </tr><tr>
-                <th>
                     Fin de partie
                 </th>
                 <td>
-                    <span class="badge badge-info">${!notAWinner}</span>
+                #{if notAWinner}
+                    <span class="label label-important">${!notAWinner}</span>
+                #{/if}
+                #{else}
+                    <span class="label label-success">${!notAWinner}</span>
+                #{/else}
                 </td>
             </tr>
         </table>
