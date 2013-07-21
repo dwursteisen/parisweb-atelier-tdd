@@ -6,16 +6,18 @@
     <h1>Trivial</h1>
 
     <div class="well">
-
+        <div class="alert alert-warn" id="alert-error" style="display: none;">
+            Oups ! Got a Problem !
+        </div>
         <form class="form-search" action="@{Application.add}" method="GET">
-            <input type="text" class="input-medium search-query" name="player" placeholder="nom du joueur">
-            <button type="submit" class="btn">Ajouter</button>
+            <input type="text" class="input-medium search-query" id="player" name="player" placeholder="nom du joueur">
+            <button type="submit" class="btn" id="buton_player">Ajouter</button>
         </form>
 
 
         <form class="form-search" action="@{Application.roll}" method="get">
-            <input type="text" class="input-medium search-query" name="roll" value="" placeholder="valeur du dès">
-            <button class="btn">Lancer les dès</button>
+            <input type="text" class="input-medium search-query" id="roll" name="roll" value="" placeholder="valeur du dès">
+            <button class="btn" id="buton_roll">Lancer les dès</button>
         </form>
     </div>
 
