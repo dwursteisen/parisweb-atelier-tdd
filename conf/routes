@@ -7,6 +7,12 @@ GET     /                                       Application.index
 GET     /add/?                                  Application.add
 GET     /roll/?                                 Application.roll
 
+
+GET     /gilded.java                            GildedRoseController.javaVersion
+GET     /gilded.js                              GildedRoseController.javascriptVersion
+*       /gilded.java/kill                       GildedRoseController.killSession
+*       /gilded.java/iteration                  GildedRoseController.iteration
+
 # Ignore favicon requests
 GET     /favicon.ico                            404
 

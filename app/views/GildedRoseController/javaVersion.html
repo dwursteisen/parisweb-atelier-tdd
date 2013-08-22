@@ -1,0 +1,29 @@
+#{extends 'GildedRoseController/layout.html' /}
+
+<table class="table table-striped  table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Quality</th>
+        <th>Sell In</th>
+    </tr>
+    </thead>
+    <tbody>
+    #{list items:items, as: 'item'}
+    <tr>
+        <td>${item.name}</td>
+        <td>${item.quality}</td>
+        <td>${item.sellIn}</td>
+    #{/list}
+    </tbody>
+</table>
+
+<div class="row">
+    <div class="col-md-8">
+        <a href="@{GildedRoseController.iteration()}" class="btn btn-success">Update !</a>
+    </div>
+
+    <div class="col-md-4">
+        <a href="@{GildedRoseController.killSession()}" class="btn btn-danger btn-xs">Restart</a>
+    </div>
+</div>
