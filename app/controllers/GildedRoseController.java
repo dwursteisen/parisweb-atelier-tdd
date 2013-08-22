@@ -56,4 +56,9 @@ public class GildedRoseController extends Controller {
     public static void javascriptVersion() {
         render();
     }
+
+    public static void javascriptTests() {
+        render();
+    }
+
 }
