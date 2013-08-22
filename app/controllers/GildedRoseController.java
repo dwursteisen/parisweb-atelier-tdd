@@ -34,7 +34,7 @@ public class GildedRoseController extends Controller {
 
     private static void updateTheInn(GildedRose inn) {
         int nombreIteration = getNombreIteration();
-        for (int i = 0; i <= nombreIteration; i++) {
+        for (int i = 0; i < nombreIteration; i++) {
             inn.updateQuality();
         }
     }

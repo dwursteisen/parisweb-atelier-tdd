@@ -1,4 +1,52 @@
 #{extends 'GildedRoseController/layout.html' /}
-#{set 'moreScript'}
-    <script src="@{'/public/javascripts/gildedRose.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+#{set 'moreScripts'}
+<script src="@{'/public/javascripts/gildedRose.js'}" type="text/javascript" charset="${_response_encoding}"></script>
 #{/set}
+<script type="text/javascript">
+    $(function () {
+        var rowTemplate = doT.compile($("#rowTemplate").text())
+        var updateTable = function () {
+            $("#tableBody").empty();
+            $(items).each(function (index, elt) {
+                $("#tableBody").append(rowTemplate(elt));
+            })
+        }
+
+        $("#update").click(function (event) {
+            update_quality();
+            updateTable();
+        });
+
+        updateTable();
+    });
+</script>
+
+<script type="doT/template" id="rowTemplate">
+    <tr>
+        <td>
+            {{=it.name}}
+        </td>
+        <td>
+            {{=it.quality}}
+        </td>
+        <td>
+            {{=it.sell_in}}
+        </td>
+    </tr>
+</script>
+
+
+<table class="table table-striped  table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Quality</th>
+        <th>Sell In</th>
+    </tr>
+    </thead>
+    <tbody id="tableBody">
+
+    </tbody>
+</table>
+
+<button type="button" class="btn btn-success" id="update">Update !</button>
