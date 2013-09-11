@@ -4,3 +4,4 @@ tmp
 *.ipr
 *.iws
 test-result
+out
