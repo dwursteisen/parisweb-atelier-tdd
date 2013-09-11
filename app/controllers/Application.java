@@ -12,6 +12,10 @@ public class Application extends Controller {
 
     private static final Random rand = new Random();
 
+
+    public static void home() {
+        render();
+    }
     public static void index() {
         Game game = retrieveGame();
         boolean notAWinner = true;
