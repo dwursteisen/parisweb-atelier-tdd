@@ -17,6 +17,7 @@ GildedRose.prototype.init = function () {
     this.items.push(new Item('Sulfuras, Hand of Ragnaros', 0, 80, Item.prototype.update_Sulfuras));
     this.items.push(new Item('Backstage passes to a TAFKAL80ETC concert', 15, 20, Item.prototype.update_BackstagePasses));
     this.items.push(new Item('Conjured Mana Cake', 3, 6, Item.prototype.update_by_default));
+    this.items.push(new Item('Toujours A Sang', 3, 100, Item.prototype.update_toujoursASang));
 }
 
 
@@ -24,6 +25,10 @@ GildedRose.prototype.update_quality = function () {
     $.each(this.items, function(index, item) { item.update() });
 }
 
+
+Item.prototype.update_toujoursASang = function() {
+    this.quality = 100;
+}
 
 Item.prototype.update_agedBrie = function() {
         if (this.quality < 50) {
