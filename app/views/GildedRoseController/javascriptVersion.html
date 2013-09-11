@@ -4,16 +4,17 @@
 #{/set}
 <script type="text/javascript">
     $(function () {
+        var inn = new GildedRose();
         var rowTemplate = doT.compile($("#rowTemplate").text())
         var updateTable = function () {
             $("#tableBody").empty();
-            $(items).each(function (index, elt) {
+            $(inn.items).each(function (index, elt) {
                 $("#tableBody").append(rowTemplate(elt));
             })
         }
 
         $("#update").click(function (event) {
-            update_quality();
+            inn.update_quality();
             updateTable();
         });
 
